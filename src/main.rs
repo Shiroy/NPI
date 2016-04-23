@@ -31,7 +31,7 @@ impl Context {
                 Token::Minus => {
                     let t1 = terme!();
                     let t2 =terme!();
-                    self.stack.push(t1 / t2);
+                    self.stack.push(t1 - t2);
                 },
                 Token::Time => {
                     let t1 = terme!();
@@ -135,8 +135,7 @@ fn tokenize(input: &String) -> Result<Vec<Token>, &'static str> {
 fn main() {
     let mut ctx = Context::new();
 
-    loop {
-        let ctx = &mut ctx;
+    loop {        
         let stdin = io::stdin();
         let mut buffer = String::new();
 
